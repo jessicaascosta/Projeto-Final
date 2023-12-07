@@ -1,15 +1,17 @@
 package com.example.demo.entities;
 
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,8 +26,7 @@ import java.util.List;
 public class Processos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
+    private Long id;
 
     @Column(nullable = false)
     private LocalDate dataCadastro;
@@ -37,32 +38,36 @@ public class Processos {
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String nomePaciente;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String cpfPaciente;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String susPaciente;
-
 
     @Column(nullable = false)
     private LocalDate dataNascimento;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String cepPaciente;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String enderecoPaciente;
 
-    @ManyToMany
-    @JoinTable(
-        name = "processo_insumos",
-        joinColumns = @JoinColumn(name = "processo_id"),
-        inverseJoinColumns = @JoinColumn(name = "insumo_id")
-    )
-    private List<Insumos> insumos;
+    @OneToMany
+    @JoinColumn(name = "processo_id")
+    private List<Armazenamento> armazenamentos;
+
+    @OneToMany
+    @JoinColumn(name = "processo_id")
+    private List<Entrega> entregas;
+
+    @ElementCollection
+    @CollectionTable(name = "processo_insumos", joinColumns = @JoinColumn(name = "processo_id"))
+    @Column(name = "insumo_id")
+    private List<Long> insumosIds;
 
     @Column(nullable = false)
     private int quantidadeInsumos;

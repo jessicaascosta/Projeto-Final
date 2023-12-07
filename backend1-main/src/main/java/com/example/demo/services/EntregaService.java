@@ -8,7 +8,7 @@ import com.example.demo.entities.Entrega;
 import com.example.demo.repositories.EntregaRepository;
 
 public class EntregaService {
-     @Autowired
+    @Autowired
     private EntregaRepository entregaRepository;
 
     public Entrega getEntrega(Integer idEntrega) {

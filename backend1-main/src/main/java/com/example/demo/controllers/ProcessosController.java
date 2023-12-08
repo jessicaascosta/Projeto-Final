@@ -1,6 +1,6 @@
 package com.example.demo.controllers;
 
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
@@ -48,10 +48,5 @@ public class ProcessosController {
         processosService.remover(idProcessos);
     }
 
-    @GetMapping("/usuario/{idUsuario}")
-    @Secured(value = { "ROLE_GESTOR" })
-    public List<Processos> getProcessosPorUsuario(@PathVariable Integer idUsuario) {
-        List<Processos> processos = processosService.getProcessosPorUsuario(idUsuario);
-        return processos;
-    }
+
 }

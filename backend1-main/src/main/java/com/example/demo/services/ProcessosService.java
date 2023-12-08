@@ -1,6 +1,6 @@
 package com.example.demo.services;
 
-import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,4 @@ public class ProcessosService {
         processosRepository.deleteById(idProcessos);
     }
 
-    public List<Processos> getProcessosPorUsuario(Integer idUsuario){
-        return processosRepository.getProcessosPorUsuario(idUsuario);
-    }
 }

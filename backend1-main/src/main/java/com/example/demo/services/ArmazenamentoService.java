@@ -3,10 +3,12 @@ package com.example.demo.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Armazenamento;
 import com.example.demo.repositories.ArmazenamentoRepository;
 
+@Service
 public class ArmazenamentoService {
     @Autowired
     private ArmazenamentoRepository armazenamentoRepository;

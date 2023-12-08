@@ -25,7 +25,7 @@ public class ProcessosController {
     
     @GetMapping("/{idProcessos}")
     @Secured(value = { "ROLE_ADMIN", "ROLE_ASSISTENTE", "ROLE_FARMACO" })
-    public Processos getProcessos(@PathVariable Integer idProcessos) {
+    public Processos getProcessos(@PathVariable Long idProcessos) {
         Processos processos = processosService.getProcessos(idProcessos);
         return processos;
     }
@@ -44,7 +44,7 @@ public class ProcessosController {
 
     @DeleteMapping("/{idProcessos}")
     @Secured(value = { "ROLE_ASSISTENTE" })
-    public void removerProcessos(@PathVariable Integer idProcessos) {
+    public void removerProcessos(@PathVariable Long idProcessos) {
         processosService.remover(idProcessos);
     }
 

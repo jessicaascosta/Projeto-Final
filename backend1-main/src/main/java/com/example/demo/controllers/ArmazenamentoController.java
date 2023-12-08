@@ -8,10 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entities.Armazenamento;
 import com.example.demo.services.ArmazenamentoService;
-
+@RestController
+@RequestMapping("/armazenamento")
 public class ArmazenamentoController {
     @Autowired
     ArmazenamentoService armazenamentoService;

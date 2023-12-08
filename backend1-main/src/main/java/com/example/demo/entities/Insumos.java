@@ -17,7 +17,7 @@ import lombok.Setter;
 public class Insumos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false)
     private String nome;

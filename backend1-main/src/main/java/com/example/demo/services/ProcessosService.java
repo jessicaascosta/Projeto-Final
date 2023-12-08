@@ -15,7 +15,7 @@ public class ProcessosService {
     @Autowired
     private ProcessosRepository processosRepository;
 
-    public Processos getProcessos(Integer idProcessos) {
+    public Processos getProcessos(Long idProcessos) {
         Optional<Processos> processos = processosRepository.findById(idProcessos);
         return processos.get();
     }
@@ -28,7 +28,7 @@ public class ProcessosService {
         return processosRepository.save(processos);
     }
 
-    public void remover(Integer idProcessos) {
+    public void remover(Long idProcessos) {
         processosRepository.deleteById(idProcessos);
     }
 

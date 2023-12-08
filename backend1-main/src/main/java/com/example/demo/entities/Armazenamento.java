@@ -29,4 +29,9 @@ public class Armazenamento {
 
     @Column(nullable = false)
     private int quantidadeInsumos;
+
+    @Column(nullable = false)
+    private String fabricante;
+
+
 }

@@ -26,7 +26,7 @@ import java.util.List;
 public class Processos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false)
     private LocalDate dataCadastro;

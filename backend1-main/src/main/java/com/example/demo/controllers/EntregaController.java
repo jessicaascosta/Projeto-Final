@@ -23,7 +23,7 @@ public class EntregaController {
     
     @GetMapping("/{idEntrega}")
     @Secured(value = { "ROLE_ADMIN", "ROLE_ASSISTENTE", "ROLE_FARMACO" })
-    public Entrega getEntrega(@PathVariable Integer idEntrega) {
+    public Entrega getEntrega(@PathVariable Long idEntrega) {
         Entrega entrega = entregaService.getEntrega(idEntrega);
         return entrega;
     }
@@ -42,7 +42,7 @@ public class EntregaController {
 
     @DeleteMapping("/{idEntrega}")
     @Secured(value = { "ROLE_FARMACO" })
-    public void removerEntrega(@PathVariable Integer idEntrega) {
+    public void removerEntrega(@PathVariable Long idEntrega) {
         entregaService.remover(idEntrega);
     }
 }

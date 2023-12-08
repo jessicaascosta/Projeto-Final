@@ -19,7 +19,7 @@ public class Estoque {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "insumo_id", nullable = false)
+    @JoinColumn(name = "idInsumos", nullable = false)
     private Insumos insumos;
 
     @Column(nullable = false)

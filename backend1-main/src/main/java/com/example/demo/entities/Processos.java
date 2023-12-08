@@ -33,7 +33,7 @@ public class Processos {
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
+    @JoinColumn(name = "idUsuario", nullable = false)
     private Usuario usuario;
 
     @Column(nullable = false, unique = true)
@@ -55,16 +55,16 @@ public class Processos {
     private String enderecoPaciente;
 
     @OneToMany
-    @JoinColumn(name = "processo_id")
+    @JoinColumn(name = "idProcessos")
     private List<Armazenamento> armazenamentos;
 
     @OneToMany
-    @JoinColumn(name = "processo_id")
+    @JoinColumn(name = "idProcessos")
     private List<Entrega> entregas;
 
     @ElementCollection
-    @CollectionTable(name = "processo_insumos", joinColumns = @JoinColumn(name = "processo_id"))
-    @Column(name = "insumo_id")
+    @CollectionTable(name = "processo_insumos", joinColumns = @JoinColumn(name = "idProcessos"))
+    @Column(name = "idInsumos")
     private List<Long> insumosIds;
 
     @Column(nullable = false)

@@ -25,11 +25,11 @@ public class Armazenamento {
     private LocalDate dataEntrada;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
+    @JoinColumn(name = "idUsuario", nullable = false)
     private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn(name = "insumo_id", nullable = false)
+    @JoinColumn(name = "idInsumos", nullable = false)
     private Insumos insumos;
 
     @Column(nullable = false)

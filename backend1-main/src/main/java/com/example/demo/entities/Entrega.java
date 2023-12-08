@@ -22,15 +22,15 @@ public class Entrega {
     private String dataSaida;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
+    @JoinColumn(name = "idUsuario", nullable = false)
     private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn(name = "processo_id", nullable = false)
+    @JoinColumn(name = "idProcessos", nullable = false)
     private Processos processo;
 
     @ManyToOne
-    @JoinColumn(name = "insumo_id", nullable = false)
+    @JoinColumn(name = "idInsumos", nullable = false)
     private Insumos insumo;
 
     @Column(nullable = false)
